@@ -13,6 +13,8 @@ class ObbahClient : HabboCommunicator(HabboNitroConnection("wss://live-arena-d74
     private val pluginManager = PluginManager(File("plugins"), this)
 
     init {
+        pluginManager.loadPlugins()
+
         getHabboConnection().listenPacket<EnterRoomResponsePacket> {
             getHabboConnection().sendPacket(GetRoomEntryDataPacket())
         }
