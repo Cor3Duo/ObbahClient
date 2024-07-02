@@ -1,6 +1,5 @@
 package com.coreduo.obbah.client.plugin
 
-import com.coreduo.bot.plugin.PluginConfiguration
 import com.coreduo.obbah.HabboCommunicator
 import com.google.gson.Gson
 import java.io.File
