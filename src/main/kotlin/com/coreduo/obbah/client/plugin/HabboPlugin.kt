@@ -1,11 +1,13 @@
 package com.coreduo.obbah.client.plugin
 
 import com.coreduo.obbah.HabboCommunicator
+import com.coreduo.obbah.client.room.RoomMessage
 
-abstract class HabboPlugin() {
+open class HabboPlugin() {
 
     lateinit var communicator: HabboCommunicator
 
-    abstract fun onEnable()
-    abstract fun onDisable()
+    open fun onEnable() {}
+    open fun onDisable() {}
+    open fun onUnitChat(message: RoomMessage) {}
 }
