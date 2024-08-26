@@ -1,6 +1,7 @@
 package com.coreduo.obbah.client.plugin
 
-import com.coreduo.obbah.HabboCommunicator
+import com.coreduo.obbah.client.HabboEnvironment
+import com.coreduo.obbah.client.ObbahClient
 import com.google.gson.Gson
 import java.io.File
 import java.io.InputStreamReader
@@ -8,7 +9,7 @@ import java.net.URLClassLoader
 import java.util.jar.JarFile
 import kotlin.reflect.full.primaryConstructor
 
-class PluginManager(private val pluginsDir: File, private val communicator: HabboCommunicator) {
+class PluginManager(private val pluginsDir: File, private var environment: HabboEnvironment) {
 
     private val plugins = mutableListOf<HabboPlugin>()
     private val gson = Gson()
@@ -31,7 +32,7 @@ class PluginManager(private val pluginsDir: File, private val communicator: Habb
 
                 if (constructor != null && constructor.parameters.isEmpty()) {
                     val plugin = constructor.call() as HabboPlugin
-                    plugin.communicator = communicator
+                    plugin.environment = environment
                     plugins.add(plugin)
                     plugin.onEnable()
                     println("Loaded plugin from ${jarFile.name}")
