@@ -113,10 +113,15 @@
             <version>2.8.9</version>
         </dependency>
         <dependency>
-            <groupId>com.github.Cor3Duo</groupId>
-            <artifactId>Obbah</artifactId>
-            <version>main-SNAPSHOT</version>
+            <groupId>com.coreduo.obbah</groupId>
+            <artifactId>HabboCommunication</artifactId>
+            <version>1.0.0</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.github.Cor3Duo</groupId>-->
+<!--            <artifactId>Obbah</artifactId>-->
+<!--            <version>main-SNAPSHOT</version>-->
+<!--        </dependency>-->
     </dependencies>
 
 </project>

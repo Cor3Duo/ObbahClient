@@ -18,9 +18,11 @@ class ObbahClient : HabboCommunicator(HabboNitroConnection("wss://live-arena-d74
         pluginManager.loadPlugins()
 
         getHabboConnection().listenPacket<AuthenticatedPacket> {
-            pluginManager.getPlugins().forEach({
+            environment.catalog.update()
+
+            pluginManager.getPlugins().forEach {
                 it.onAuthenticated()
-            })
+            }
         }
 
         getHabboConnection().listenPacket<UnitChatPacket> { packet ->
@@ -31,9 +33,9 @@ class ObbahClient : HabboCommunicator(HabboNitroConnection("wss://live-arena-d74
                 pluginManager.loadPlugins()
             }
 
-            pluginManager.getPlugins().forEach({
+            pluginManager.getPlugins().forEach {
                 it.onUnitChat(RoomMessage(packet.message, packet.bubbleId, unit))
-            })
+            }
         }
 
         print("SSO > ")
