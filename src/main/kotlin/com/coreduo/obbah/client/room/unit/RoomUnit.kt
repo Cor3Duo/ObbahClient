@@ -1,4 +1,4 @@
-package com.coreduo.obbah.client.room
+package com.coreduo.obbah.client.room.unit
 
 import com.coreduo.obbah.data.unit.RoomUnitData
 
